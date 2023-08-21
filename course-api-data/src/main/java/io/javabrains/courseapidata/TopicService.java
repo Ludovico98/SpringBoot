@@ -29,25 +29,20 @@ public class TopicService {
 
     }
 
-    public Topic getTopic(String id)
-    {
+    public Topic getTopic(String id){
         //return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
         Optional<Topic> optionalTopic = topicRepository.findById(id);
         
         if(optionalTopic.isPresent())
             return optionalTopic.get();
         return null;
-
-
     }
 
     public void addTopic(Topic topic){
         topicRepository.save(topic);
     }
 
-    public void updateTopic(String id, Topic topic)
-    {
-
+    public void updateTopic(String id, Topic topic){
         topicRepository.save(topic);
     }
 
@@ -55,5 +50,5 @@ public class TopicService {
         //topics.removeIf(t -> t.getId().equals(id));
         topicRepository.deleteById(id);
     }
-
+    
 }
